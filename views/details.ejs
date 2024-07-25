@@ -1,0 +1,47 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+<div class="container">
+  <h1 class="text-center mt-10 mb-3">PIN Information About <%= pin %></h1>
+  <table class="table table-success table-striped table-bordered mt-3">
+    <% for(let item of data){ %>
+    <thead>
+      <tr>
+        <th scope="col">Sl.</th>
+        <th scope="col">PO Name</th>
+        <th scope="col">Branch Type</th>
+        <th scope="col">Circle</th>
+        <th scope="col">District</th>
+        <th scope="col">Region</th>
+        <th scope="col">Block</th>
+        <th scope="col">State</th>
+        <th scope="col">Country</th>
+        <th scope="col">Pincode</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let index = 0; index < item.PostOffice.length; index++) { %> <%
+      const element = item.PostOffice[index]; %>
+      <tr>
+        <td class="text-center">
+          <% if((index+1) < 10){%> 0<%= (index+1) %>. <% } else { %> <%= index+1
+          %>. <% } %>
+        </td>
+        <td><%= element.Name %></td>
+        <td><%= element.BranchType %></td>
+        <td><%= element.Circle %></td>
+        <td><%= element.District %></td>
+        <td><%= element.Region %></td>
+        <td><%= element.Block %></td>
+        <td><%= element.State %></td>
+        <td><%= element.Country %></td>
+        <td><%= element.Pincode %></td>
+      </tr>
+      <% console.log('Post Office - ', index+ 1 , element); %> <% } %>
+    </tbody>
+    <p>
+      There are <%= item.PostOffice.length %> Post Offices found in <%= pin %>.
+    </p>
+    <% } %>
+  </table>
+  <a href="/" class="btn btn-primary">Home</a>
+</div>

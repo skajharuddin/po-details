@@ -1,0 +1,22 @@
+<% layout('/layouts/boilerplate.ejs') %>
+
+<div class="container mw-50">
+  <h1 class="text-center mt-3">Postal Index Code</h1>
+  <form action="/query" method="post" class="form mt-3">
+    <div class="mb-3">
+      <label for="pin" class="form-label">Enter your PIN here</label>
+      <input
+        type="text"
+        class="form-control"
+        id="pin"
+        name="pin"
+        placeholder="Enter your PIN here"
+      />
+    </div>
+    <button type="submit" class="btn btn-primary search-btn">Submit</button>
+    <input type="reset" value="Reset" class="btn btn-warning" />
+  </form>
+</div>
+
+<!-- bootstrap file -->
+<script src="/bootstrap.js" type="text/javascript"></script>
